@@ -1,14 +1,1 @@
-const menuBtn = document.querySelector(".menu-btn");
-const nav = document.querySelector(".nav");
-
-menuBtn?.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menuBtn.setAttribute("aria-expanded", String(open));
-});
-
-document.querySelectorAll(".nav a").forEach(a => {
-  a.addEventListener("click", () => {
-    nav.classList.remove("open");
-    menuBtn?.setAttribute("aria-expanded", "false");
-  });
-});
+const items=document.querySelectorAll(".reveal");const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("show");observer.unobserve(e.target);}})},{threshold:.12});items.forEach(i=>observer.observe(i));
